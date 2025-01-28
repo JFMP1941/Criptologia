@@ -1,11 +1,11 @@
 import random
 
 def generar_claves_diffie_hellman(q, alpha):
-    # Generar claves privadas aleatorias para Ana y Bob
+    # Generar claves privadas aleatorias
     clave_privada_ana = random.randint(2, q - 2)  # 1 < clave_privada < q-1
     clave_privada_bob = random.randint(2, q - 2)
 
-    # Calcular claves públicas usando la fórmula: clave_publica = alpha^clave_privada mod q
+    #clave_publica = alpha^clave_privada mod q
     clave_publica_ana = pow(alpha, clave_privada_ana, q)
     clave_publica_bob = pow(alpha, clave_privada_bob, q)
 
@@ -13,7 +13,7 @@ def generar_claves_diffie_hellman(q, alpha):
     clave_compartida_ana = pow(clave_publica_bob, clave_privada_ana, q)
     clave_compartida_bob = pow(clave_publica_ana, clave_privada_bob, q)
 
-    # Verificar que ambas claves compartidas son iguales
+    # Verificacion de claves
     if clave_compartida_ana == clave_compartida_bob:
         return {
             "Clave privada de Ana": clave_privada_ana,
@@ -25,14 +25,11 @@ def generar_claves_diffie_hellman(q, alpha):
     else:
         return "Error: Las claves compartidas no coinciden."
 
-# Parámetros
-q = 65537  # Número primo
-alpha = 3  # Raíz primitiva
 
-# Ejecutar la función
+q = 65537  
+alpha = 3  
+
 resultado = generar_claves_diffie_hellman(q, alpha)
-
-# Mostrar resultados
 print("=== Intercambio de claves Diffie-Hellman ===")
 print(f"Parámetros públicos: q = {q}, a = {alpha}")
 print(f"Clave privada de Ana: {resultado['Clave privada de Ana']}")
