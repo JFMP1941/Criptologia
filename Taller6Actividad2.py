@@ -25,12 +25,9 @@ def generar_claves_diffie_hellman(q, alpha):
     else:
         return "Error: Las claves compartidas no coinciden."
 
-
 q = 65537  
 alpha = 3  
-
 resultado = generar_claves_diffie_hellman(q, alpha)
-print("=== Intercambio de claves Diffie-Hellman ===")
 print(f"Parámetros públicos: q = {q}, a = {alpha}")
 print(f"Clave privada de Ana: {resultado['Clave privada de Ana']}")
 print(f"Clave pública de Ana: {resultado['Clave pública de Ana']}")

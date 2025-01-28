@@ -15,17 +15,18 @@ def generar_claves_diffie_hellman(q, alpha):
 
     # Verificacion de claves
     if clave_compartida_ana == clave_compartida_bob:
-        return {
-            "Clave privada de Ana": clave_privada_ana,
-            "Clave pública de Ana": clave_publica_ana,
-            "Clave privada de Bob": clave_privada_bob,
-            "Clave pública de Bob": clave_publica_bob,
-            "Clave compartida": clave_compartida_ana
-        }
+       return (
+        "Clave privada de Ana: " + str(clave_privada_ana) + "\n"
+        "Clave pública de Ana: " + str(clave_publica_ana) + "\n"
+        "Clave privada de Bob: " + str(clave_privada_bob) + "\n"
+        "Clave pública de Bob: " + str(clave_publica_bob) + "\n"
+        "Clave compartida: " + str(clave_compartida_ana)
+)
+        
     else:
         return "Error: Las claves compartidas no coinciden."
 
 q = 65537  
-alpha = 3   
-resultado = generar_claves_diffie_hellman(q, alpha)
+a = 3   #raiz usada
+resultado = generar_claves_diffie_hellman(q, a)
 print(resultado)
