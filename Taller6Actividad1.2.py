@@ -10,7 +10,6 @@ def calcular_clave_compartida(clave_publica_otro, clave_privada, q):
 
 q = 65537  
 alpha = 3 
-
 clave_privada_ana = random.randint(2, q - 2)
 clave_privada_bob = random.randint(2, q - 2)
 clave_privada_anonymous = random.randint(2, q - 2)
